@@ -64,6 +64,7 @@ p {
   font-size: 18px;
   line-height: 1.17;
   letter-spacing: 0.03em;
+  padding: 24px 0;
 }
 
 .logo-link-span {
@@ -108,6 +109,7 @@ p {
   letter-spacing: 0.02em;
   color: #434455;
   text-decoration: none;
+  padding: 24px 0;
 }
 
 .link-address:hover,
@@ -189,16 +191,6 @@ p {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-/* ---- our-features--- */
-.visually-hidden {
-  text-align: left;
-  font-weight: 700;
-  font-size: 36px;
-  letter-spacing: 0.02em;
-  line-height: 1.111;
-  color: #2e2f42;
 }
 
 .features-list {
