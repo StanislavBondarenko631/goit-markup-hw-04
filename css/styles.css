@@ -135,6 +135,12 @@ p {
   align-items: center;
   text-align: center;
   background-color: #2e2f42;
+  background-image:
+    linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)),
+    url("../images/herobackground.peopleoffice.jpg");
+  background-size: 1440px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero-text {
@@ -204,6 +210,21 @@ p {
 /*(100% - (количество зазоров * размер зазора)) / количество элементов */
 .features-item {
   width: calc((100% - 3 * 24px) / 4);
+}
+
+.features-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 112px;
+  background-color: #f4f4fd;
+  border-radius: 4px;
+  border: 1px solid #8e8f99;
+  margin-bottom: 8px;
+}
+
+.features-icon {
+  fill: #2e2f42;
 }
 
 /* Заголовок внутри карточки */
@@ -288,6 +309,38 @@ p {
   color: #434455;
 
   margin: 0;
+}
+
+.team-social-list {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.team-social-item {
+  width: 40px;
+  height: 40px;
+}
+
+.team-social-link {
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.team-social-link:hover,
+.team-social-link:focus {
+  background-color: #404bbf;
+}
+
+.team-social-icon {
+  fill: #f4f4fd;
 }
 
 .section-our-portfolio {
@@ -386,4 +439,3 @@ p {
   max-width: 264px;
   margin: 0;
 }
-/* the end */
