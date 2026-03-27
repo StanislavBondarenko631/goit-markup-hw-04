@@ -86,19 +86,34 @@ p {
 .link-nav {
   display: block;
   padding: 24px 0;
+  position: relative;
 
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #2e2f42;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
 }
 
 .link-nav:hover,
-.link-nav:active,
-.link-nav:focus {
+.link-nav:focus,
+.link-nav.current {
   color: #404bbf;
+}
+
+/* Декоративное подчеркивание только для текущей страницы */
+.link-nav.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
 }
 
 .link-address {
@@ -372,7 +387,45 @@ p {
 
 .portfolio-list-item {
   width: calc((100% - 48px) / 3);
-  /* Добавим рамку для контента под фото, как в макете */
+  /* 1. Добавляем плавный переход для тени */
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/*  2. Добавляем саму тень при наведении */
+
+.portfolio-list-item:hover,
+.portfolio-list-item:focus {
+  box-shadow:
+    0px 1px 6px rgba(46, 47, 66, 0.08),
+    0px 1px 1px rgba(46, 47, 66, 0.16),
+    0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-thumb {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  color: #f4f4fd;
+  padding: 40px 32px;
+
+  /* Начальное положение — полностью внизу за пределами видимости */
+  transform: translateY(100%);
+  /* Анимация только трансформации */
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Появление при ховере на ВСЮ карточку */
+.portfolio-list-item:hover .portfolio-overlay,
+.portfolio-list-item:focus .portfolio-overlay {
+  transform: translateY(0);
 }
 
 .our-portfolio-title {
@@ -415,7 +468,12 @@ p {
 /* 2. Контейнер: выстраиваем логотип и текст в колонку */
 .footer-container {
   display: flex;
-  flex-direction: column;
+  /* Чтобы логотип и заголовок соцсетей выровнялись по одной линии */
+  align-items: baseline;
+}
+
+.footer-info {
+  margin-right: 120px;
 }
 
 .footer-logo {
@@ -423,6 +481,7 @@ p {
   display: inline-block;
   /* Тот самый отступ 16px до текста */
   margin-bottom: 16px;
+  padding: 0;
 }
 
 .logo-link-span-footer {
@@ -438,4 +497,44 @@ p {
   /* Ключевой параметр для переноса строк как в макете */
   max-width: 264px;
   margin: 0;
+}
+
+.footer-social-title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footer-social-list {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-social-item {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus {
+  background-color: #31d0aa;
+}
+
+.footer-social-icon {
+  /* цвет иконок */
+  fill: #f4f4fd;
 }
